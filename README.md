@@ -7,7 +7,7 @@ Additional it will also try to remove green spilling which often occurs around s
 
 create directories "input" and "output"
 
-Put the images with the green backgroun in the "input" folder
+Put the images with the green background in the "input" folder
 
 Run the script
 

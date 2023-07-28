@@ -11,21 +11,21 @@ def remove_green_screen(input_path, output_path):
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
     # Define color of green screen in BGR
-    green_screen_color_bgr = np.uint8([[[0, 220, 0]]]) 
+    green_screen_color_bgr = np.uint8([[[0, 255, 0]]]) 
 
     # Convert the green screen color to HSV
     green_screen_hsv = cv2.cvtColor(green_screen_color_bgr, cv2.COLOR_BGR2HSV)
 
     # Define range of green color in HSV
-    lower_green_hsv = np.array([green_screen_hsv[0][0][0] - 35, 100, 100])
+    lower_green_hsv = np.array([green_screen_hsv[0][0][0] - 35, 36, 36])
     upper_green_hsv = np.array([green_screen_hsv[0][0][0] + 35, 255, 255])
 
     # Threshold the HSV image to get only green colors
     mask = cv2.inRange(hsv, lower_green_hsv, upper_green_hsv)
 
     # Morphological operations
-    mask = cv2.dilate(mask, None, iterations=1)
-    mask = cv2.erode(mask, None, iterations=1)
+    mask = cv2.dilate(mask, None, iterations=0)
+    mask = cv2.erode(mask, None, iterations=0)
 
     # Create an alpha channel with the same shape as the green screen mask
     alpha_channel = np.ones(mask.shape, dtype=np.uint8) * 255
