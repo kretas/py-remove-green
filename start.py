@@ -46,7 +46,7 @@ input_dir = 'input/'
 output_dir = 'output/'
 
 # List of all image files in the input directory
-image_files = [f for f in os.listdir(input_dir) if f.endswith('.png')]
+image_files = [f for f in os.listdir(input_dir) if f.endswith('.webp')]
 
 # Total number of images
 total_images = len(image_files)
